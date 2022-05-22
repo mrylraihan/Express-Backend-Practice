@@ -48,7 +48,7 @@ app.use((req, res) => {
 
 const port = 4000
 app.listen(port, () => {
-    console.log(`Listening to that sweet gundam noise on port ${port}`);
+    console.log(`Listening to that sweet Example routes noise on port ${port}`);
 })
 
 module.exports = app;
