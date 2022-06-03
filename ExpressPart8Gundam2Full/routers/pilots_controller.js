@@ -31,14 +31,35 @@ router.put('/:id', (req, res)=>{
         .catch(err=>res.json(err))
 })
 
+// update one get one back 
 router.put('/:pilot_id/gundams', (req, res)=>{
     Pilot.findByIdAndUpdate(
         req.params.pilot_id,
         {$push :{gundams_piloted: req.body.gundam}},
         {new:true}
     )
+    .populate('gundams_piloted')
     .then(updatedUser=>res.json(updatedUser))
     .catch(err=>res.json(err))
+})
+
+// update one get all back
+router.put('/:pilot_id/allgundams', (req, res) => {
+    Pilot.findByIdAndUpdate(
+        req.params.pilot_id,
+        { $push: { gundams_piloted: req.body.gundam } },
+        { new: true }
+    )
+        // .populate('gundams_piloted')
+        // .then(updatedUser=>res.json(updatedUser))
+        .then(newUpdate => {
+            const all = Pilot.find()
+                .populate('gundams_piloted')
+                .then(result => res.json(result))
+                .catch(err => res.json(err))
+            return all
+        })
+        .catch(err => res.json(err))
 })
 
 router.delete('/:pilot_id/gundams/:gundam_id', (req, res)=>{
