@@ -9,6 +9,12 @@ router.get('/', (req, res)=>{
         .then(user=>res.json(user))
         .catch(err=>res.json(err))
 })
+router.get('/:name', (req, res) => {
+    // you can use find or findOne , find returns [] and findOne returns {}
+    Pilot.find({ pilot: req.params.name })
+        .then(result => res.json(result))
+        .catch(err => res.json(err))
+})
 //Get by Id
 router.get('/:id', (req, res)=>{
     Pilot.findOne({_id:req.params.id})
@@ -30,6 +36,7 @@ router.put('/:id', (req, res)=>{
         .then(user=>res.json(user))
         .catch(err=>res.json(err))
 })
+
 
 // update one get one back 
 router.put('/:pilot_id/gundams', (req, res)=>{

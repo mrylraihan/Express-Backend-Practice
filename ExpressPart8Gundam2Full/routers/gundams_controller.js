@@ -15,6 +15,11 @@ router.get('/:id', (req, res)=>{
     .then(result=>res.json(result))
     .catch(err=>res.json(err))
 })
+router.get('/:name', (req, res)=>{
+    Gundam.findOne({pilot:req.params.name})
+    .then(result=>res.json(result))
+    .catch(err=>res.json(err))
+})
 // Post
 router.post('/', (req, res)=>{
     // Gundam.create(req.body)//{name:"tallgeese"}
