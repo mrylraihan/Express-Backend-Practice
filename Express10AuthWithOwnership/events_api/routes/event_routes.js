@@ -19,10 +19,20 @@ const requiresToken = passport.authenticate('bearer', { session: false })
 
 // create a router for our express 
 const router = express.Router()
+router.get('/events/all-events', (req, res, next) => {
+    // we will need to put the reqtoken in the get
+    // Event.find({ owner: req.user._id })
+        Event.find()
+        .populate('owner')
+        .then(events => res.json(events))
+        .catch(err => res.json(err))
+})
 
-router.get('/events', (req, res, next) => {
-    Event.find()
-    .populate('owner')
+router.get('/events', requiresToken,(req, res, next) => {
+    // we will need to put the reqtoken in the get
+    Event.find({owner:req.user._id})
+    // Event.find()
+    // .populate('owner')
         .then(events => res.json(events))
         .catch(err => res.json(err))
 })
@@ -35,6 +45,14 @@ router.get('/events', (req, res, next) => {
 //     .then(result=>res.json(result))
 //     .catch(err=>res.json(err))
 // })
+
+// get by id
+
+router.get('/events/:id', requiresToken, (req, res, next)=>{
+    Event.findById(req.params.id)
+    .then(result=>res.json(result))
+    .catch(err=>res.json(err))
+})
 
 router.post('/events',requiresToken, (req, res, next)=>{
   
