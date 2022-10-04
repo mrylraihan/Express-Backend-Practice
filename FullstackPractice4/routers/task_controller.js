@@ -26,7 +26,7 @@ router.post('/',(req,res)=>{
 // update one 
 router.patch('/:id',(req,res)=>{
     const id = req.params.id
-    const task = req.body.task
+    const task = req.body
     Task.findByIdAndUpdate(id, task, { new: true })
     .then(newTask=>res.json(newTask))
     .catch(error=>res.json(error))
