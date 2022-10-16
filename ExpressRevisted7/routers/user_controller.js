@@ -9,7 +9,7 @@ router.get('/', (req, res)=>{
     .catch(err=>res.json(err))
 })
 router.post('/', (req, res)=>{
-    const user = req.body.user
+    const user = req.body
     User.create(user)
     .then(users=>res.json(users))
     .catch(err=>res.json(err))
