@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
-mongoose.connect('mongodb://localhost/notes-db2')
+mongoose.connect('mongodb://localhost/notes-db3')
 const userController = require('./routers/users_controllers')
 const noteController = require('./routers/notes_controllers')
 app.use('/users', userController)

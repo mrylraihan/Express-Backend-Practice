@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/notes-db2')
+mongoose.connect('mongodb://localhost/notes-db3')
 const User = require('../models/user')
 
 const userList = [
