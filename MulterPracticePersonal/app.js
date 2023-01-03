@@ -52,7 +52,7 @@ app.post('/images', upload.single('image'),(req,res, next)=>{
         path: req.file.path,
         image: {
             data: fs.readFileSync('uploads/'+ req.file.filename),
-            contentType: 'image/jpeg'
+            contentType: 'image/png'
         }
     }
     Image.create(obj)
