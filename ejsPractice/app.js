@@ -28,6 +28,32 @@ app.get('/fruits', (req, res) => {
     res.send({ fruitsList })
     // res.render('show.ejs')
 })
+
+app.get('/fruits/new', (req, res) => {
+    res.render('new.ejs')
+})
+
+// take form data and create new fruit with it 
+// app.post('/fruits', (req, res) => {
+//     const name = req.body.name
+//     const color = req.body.color
+//     fruitsList.push({name,color})
+//     res.json(fruitsList)
+//     // res.render('show.ejs')
+// })
+app.post('/fruits', (req, res) => {
+    // req.body is used to take form data
+    const name = req.body.name
+    const color = req.body.color
+    fruitsList.push({name,color})
+    res.json(fruitsList)
+    // res.render('show.ejs')
+})
+
+app.get('/fruits/index', (req, res) => {
+    
+    res.render('index.ejs', { fruitsList: fruitsList })
+})
 app.get('/fruits/:idxFruit', (req, res) => {
     const pickFruit = fruitsList[req.params.idxFruit]
     res.render('show.ejs',{ fruitsList: pickFruit})
