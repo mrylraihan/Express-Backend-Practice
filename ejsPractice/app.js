@@ -58,6 +58,9 @@ app.get('/fruits/:idxFruit', (req, res) => {
     const pickFruit = fruitsList[req.params.idxFruit]
     res.render('show.ejs',{ fruitsList: pickFruit})
 })
+app.get('/allfruits', (req, res) => {
+    res.render('showall.ejs', { fruits: fruitsList })
+})
 
 app.get('/name/:inputName', (req, res)=>{
     const name = req.params.inputName
