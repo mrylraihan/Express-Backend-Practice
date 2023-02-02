@@ -19,10 +19,17 @@ router.get('/findOne/:name', (req, res)=>{
         .then(allPeople =>res.json(allPeople))
         .catch(err=>res.json({error:err}))
 })
-router.get('/findById/:id', (req, res)=>{
-    Person.findById({_id:req.params.id})//will return 1 by id in an object
-        .then(allPeople =>res.json(allPeople))
-        .catch(err=>res.json({error:err}))
+//get by params
+// router.get('/findById/:id', (req, res)=>{
+//     Person.findById({_id:req.params.id})//will return 1 by id in an object
+//         .then(allPeople =>res.json(allPeople))
+//         .catch(err=>res.json({error:err}))
+// })
+// get by body
+router.get('/findById/id', (req, res) => {
+    Person.findById({ _id: req.body.id })//will return 1 by id in an object
+        .then(allPeople => res.json(allPeople))
+        .catch(err => res.json({ error: err }))
 })
 
 router.post('/', (req, res)=>{
