@@ -9,7 +9,7 @@ const port = 4001
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
-
+// mongoose.set('strictQuery', false);//check this out later 
 mongoose.connect('mongodb://localhost/designerFurniture_db2')
 
 
