@@ -48,6 +48,7 @@ router.put('/:id', (req,res)=>{
     .then(newNote=>res.json(newNote))
     .catch(err=>res.json(err))
 })
+
 router.patch('/:id', (req,res)=>{
     Note.findByIdAndUpdate(req.params.id, req.body.owner,{new:true})
     .then(newNote=>res.json(newNote))
