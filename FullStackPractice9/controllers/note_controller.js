@@ -18,7 +18,10 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const noteInput = req.body.note
+    // let noteInput = req.body.note
+    // if(!noteInput){
+      let  noteInput = req.body
+    // }
     Note.create(noteInput)
         .then(note => res.json(note))
         .catch(error => res.json(error))
