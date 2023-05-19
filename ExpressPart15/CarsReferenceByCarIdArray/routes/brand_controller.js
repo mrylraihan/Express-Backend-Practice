@@ -12,6 +12,7 @@ router.get('/', (req, res)=>{
 
 router.get('/:id', (req, res)=>{
     Brand.findById(req.params.id)
+        .populate('carLineUp')
         .then(brand => res.json(brand))
         .catch(err => res.json(err))
 })
@@ -40,6 +41,12 @@ router.delete('/remove/:id', (req, res) => {
             res.json(UpdatedBrand)
         })
         .catch(err => res.json(err))
+})
+router.delete('/:id', (req,res)=>{
+    Brand.findByIdAndDelete(req.params.id)
+    // .then(deletedBrand=>res.json(deletedBrand))
+    .then(deletedBrand=>res.redirect(302,'/brands'))
+    .catch(err=>res.json(err))
 })
 
 module.exports = router
