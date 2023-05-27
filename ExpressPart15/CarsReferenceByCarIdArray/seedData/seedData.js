@@ -46,7 +46,7 @@ const insertSeedData = () => {
         .catch(console.error)
 }
 
-// insertSeedData()
+insertSeedData()
 // const insertSeedData = () => {
 //     Car.deleteMany({})
 //     Car.insertMany(listOfCars)
@@ -57,4 +57,4 @@ const insertSeedData = () => {
 //         .catch(console.error)
 // }
 
-insertSeedData()
+// insertSeedData()
