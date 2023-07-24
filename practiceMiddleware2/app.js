@@ -13,16 +13,18 @@ app.use((req,res, next)=>{
 
 app.get('/', (req,res, next)=>{
     console.log('first route before next')
-    next()//will hit the second and third middleware logs then return 
+    next({message2:"Second Middleware", message3:"Third Middleware"})//will hit the second and third middleware logs then return 
     console.log('first route after next')
     res.json({message:"first route!"})
 })
-app.use((req, res, next) => { // need next as a arg to use next()
-    console.log("Second middleWare")
-    next()//without this you cant reach the next middleware "Third middleware"
+app.use((log,req, res, next) => { // need next as a arg to use next()
+    // console.log("Second middleWare")
+    console.log(log.message2)
+    next({...log})//without this you cant reach the next middleware "Third middleware"
 })
-app.use((req, res) => {
-    console.log("Third middleWare")
+app.use((log, req, res, next) => {//you need next if you want to be able to access the log data 
+    // console.log("Third middleWare")
+    console.log(log.message3)
     // next()
     // return 
 })
