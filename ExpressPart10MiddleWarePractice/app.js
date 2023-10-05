@@ -32,7 +32,6 @@ app.use((log,req,res,next)=>{
         // we can pass the data through to the next middleware function 
         next(log)
     }
-
 })
 
 app.use((number, req, res, next) => {
