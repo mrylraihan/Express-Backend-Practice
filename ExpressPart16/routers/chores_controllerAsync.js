@@ -61,6 +61,7 @@ router.delete('/:id', async (req, res) => {
             res.status(404).json({ message: 'Task doesnt exist' })
         } else {
             res.redirect(301, '/chores')//this will redirect u to the full get route
+            // res.json({message:"successfully deleted"})//this will redirect u to the full get route
         }
 
     } catch (err) {

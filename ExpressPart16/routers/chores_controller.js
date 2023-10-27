@@ -52,7 +52,9 @@ router.delete('/:id', (req, res) => {
             if(deletedChore == null){
                 res.status(404).json({message:'Task doesnt exist'})
             }else{
-                res.redirect(301, '/chores')//this will redirect u to the full get route
+                res.json(deletedChore)
+                // res.redirect('/chores')//this will redirect u to the full get route
+                // res.redirect(301, '/chores')//this will redirect u to the full get route
             }
         })
         .catch(err => res.json(err))
