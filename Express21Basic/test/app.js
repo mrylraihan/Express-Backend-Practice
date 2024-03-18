@@ -14,10 +14,38 @@ function fizzBuzz(n) {
     }
 
 }
-fizzBuzz(15);
+// fizzBuzz(15);
 
-// function main() {
-//     const n = parseInt(readLine().trim(), 10);
+const arr = [9,8,7, 6, 5, 4, 2, 3, 1]
 
-//     fizzBuzz(n);
+// const sortedArr = arr.sort()
+// console.log(sortedArr);
+
+// console.log(arr)
+
+// console.log(arr.at(-1))
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i], 'in i loop')
+//     for (let j = 0; j < arr.length; j++) {
+//         console.log(arr[j], 'in j loop')
+//         if(arr[i]<arr[j]){
+//             let temp = arr[i];
+//             arr[i] = arr[j];
+//             arr[j] = temp;
+//         }
+        
+//     }
+
 // }
+// console.log(arr)
+
+// for (let i = 0; i < arr.length; i++) {
+//     if(arr[i]>arr[i+1]){
+//         let temp = arr[i+1]
+//         arr[i+1]=arr[i]
+//         arr[i] = temp
+//     }
+    
+// }
+// console.log(arr)
