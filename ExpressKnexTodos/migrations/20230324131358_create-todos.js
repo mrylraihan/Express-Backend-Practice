@@ -1,7 +1,8 @@
 
 exports.up = function (knex) {
     return knex.schema.createTable('todo', table => {
-        table.increments()
+        table.increments();
+        // table.increments('id').primary();for primary key
         table.string('title')
         table.string('body')
         table.timestamps(true, true)

@@ -66,9 +66,10 @@ router.delete('/:id', (req, res) => {
     knex('todo')
         .where({ id: id })
         .del()
+        .returning("*")//returns full object
         .then(numChoreDeleted => {
-
-            res.json({ message: ` ${numChoreDeleted} todo was Deleted!` })
+            console.log(numChoreDeleted)
+            res.json({ message: ` ${numChoreDeleted[0].id} todo was Deleted!` })
 
             //     next({ status: 404, customMessage: 'No Body Found!' })
             // }

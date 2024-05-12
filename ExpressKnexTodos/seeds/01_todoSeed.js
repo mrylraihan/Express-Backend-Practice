@@ -7,15 +7,15 @@ exports.seed = function (knex) {
   return knex('todo').del()
     .then(() => {
       return knex('todo').insert([
-        { id: 1, title: 'Clean Clothes', body: 'do laundry' },
-        { id: 2, title: 'Clean Rugs', body: 'do laundry' },
-        { id: 3, title: 'Clean Fridge', body: 'Throw out everything' },
-        { id: 4, title: 'Clean Bathroom', body: 'Get new toiletries' },
-        { id: 5, title: 'code', body:'Study React'},
+        {  title: 'Clean Clothes', body: 'do laundry' },
+        {  title: 'Clean Rugs', body: 'do laundry' },
+        {  title: 'Clean Fridge', body: 'Throw out everything' },
+        {  title: 'Clean Bathroom', body: 'Get new toiletries' },
+        {  title: 'code', body:'Study React'},
       ])
-        .then(() => {
-          return knex.raw(`SELECT setval('todo_id_seq', (SELECT MAX(id) FROM todo));`)
-        })
+        // .then(() => {
+        //   return knex.raw(`SELECT setval('todo_id_seq', (SELECT MAX(id) FROM todo));`)
+        // })
     })
 };
 
