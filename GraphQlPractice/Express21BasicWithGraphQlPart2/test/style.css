@@ -1,0 +1,33 @@
+form{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+}
+.first-name {
+   grid-column: span 2;
+}
+.last-name {
+   grid-column: span 2;
+}
+.age {
+   grid-column: span 2;
+}
+
+.address{
+    grid-column: span 6;
+}
+
+.place-of-work{
+grid-column: span 3;
+}
+.job-title{
+grid-column: span 3;
+}
+.skype{
+grid-column: span 3;
+}
+.phone-number{
+grid-column: span 3;
+}
+button{
+    grid-column: span 6;
+}
